@@ -1,0 +1,18 @@
+# Build outputs
+*.exe
+*.o
+
+# VS Code user-specific files
+.vscode/*
+!.vscode/tasks.json
+
+# raylib local build outputs
+_deps/raylib-win32/lib/libraylib.a
+_deps/raylib-src/src/*.o
+_deps/raylib-src/src/libraylib.a
+_deps/raylib-src/src/libraylibdll.a
+_deps/raylib-src/src/raylib.dll
+
+# OS junk
+.DS_Store
+Thumbs.db

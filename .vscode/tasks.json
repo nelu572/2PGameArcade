@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build slim raylib",
+            "type": "shell",
+            "command": "mingw32-make",
+            "args": [
+                "-C",
+                "_deps/raylib-src/src",
+                "PLATFORM=PLATFORM_DESKTOP_WIN32",
+                "GRAPHICS=GRAPHICS_API_OPENGL_11",
+                "RAYLIB_BUILD_MODE=RELEASE",
+                "RAYLIB_MODULE_MODELS=FALSE",
+                "RAYLIB_MODULE_AUDIO=TRUE",
+                "RAYLIB_RELEASE_PATH=C:/Project/2PGameArcade/_deps/raylib-win32/lib",
+                "CUSTOM_CFLAGS=-D_WIN32_WINNT=0x0A00 -DNTDDI_VERSION=0x0A000000 -Os -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables -fno-unwind-tables",
+                "RAYLIB_CONFIG_FLAGS=-DSUPPORT_MODULE_RSHAPES=1 -DSUPPORT_MODULE_RTEXTURES=1 -DSUPPORT_MODULE_RTEXT=1 -DSUPPORT_MODULE_RMODELS=0 -DSUPPORT_MODULE_RAUDIO=1 -DSUPPORT_TRACELOG=0 -DSUPPORT_CAMERA_SYSTEM=0 -DSUPPORT_GESTURES_SYSTEM=0 -DSUPPORT_RPRAND_GENERATOR=0 -DSUPPORT_MOUSE_GESTURES=0 -DSUPPORT_SSH_KEYBOARD_RPI=0 -DSUPPORT_WINMM_HIGHRES_TIMER=0 -DSUPPORT_BUSY_WAIT_LOOP=1 -DSUPPORT_PARTIALBUSY_WAIT_LOOP=0 -DSUPPORT_SCREEN_CAPTURE=0 -DSUPPORT_COMPRESSION_API=0 -DSUPPORT_AUTOMATION_EVENTS=0 -DSUPPORT_CLIPBOARD_IMAGE=0 -DSUPPORT_FILEFORMAT_PNG=1 -DSUPPORT_FILEFORMAT_BMP=1 -DSUPPORT_FILEFORMAT_TGA=0 -DSUPPORT_FILEFORMAT_JPG=0 -DSUPPORT_FILEFORMAT_GIF=0 -DSUPPORT_FILEFORMAT_QOI=0 -DSUPPORT_FILEFORMAT_PSD=0 -DSUPPORT_FILEFORMAT_DDS=0 -DSUPPORT_FILEFORMAT_HDR=0 -DSUPPORT_FILEFORMAT_PIC=0 -DSUPPORT_FILEFORMAT_PNM=0 -DSUPPORT_FILEFORMAT_KTX=0 -DSUPPORT_FILEFORMAT_ASTC=0 -DSUPPORT_FILEFORMAT_PKM=0 -DSUPPORT_FILEFORMAT_PVR=0 -DSUPPORT_IMAGE_EXPORT=0 -DSUPPORT_IMAGE_GENERATION=0 -DSUPPORT_FILEFORMAT_TTF=0 -DSUPPORT_FILEFORMAT_FNT=0 -DSUPPORT_FILEFORMAT_BDF=0 -DSUPPORT_FILEFORMAT_WAV=1 -DSUPPORT_FILEFORMAT_OGG=1 -DSUPPORT_FILEFORMAT_MP3=0 -DSUPPORT_FILEFORMAT_QOA=0 -DSUPPORT_FILEFORMAT_FLAC=0 -DSUPPORT_FILEFORMAT_XM=0 -DSUPPORT_FILEFORMAT_MOD=0"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "build game",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-Command",
+                "$sources = Get-ChildItem -Path 'src' -Recurse -Filter *.cpp | Select-Object -ExpandProperty FullName; & g++ $sources '-o' 'game.exe' '-IC:/Project/2PGameArcade/_deps/raylib-src/src' '-LC:/Project/2PGameArcade/_deps/raylib-win32/lib' '-Os' '-s' '-ffunction-sections' '-fdata-sections' '-Wl,--gc-sections' '-Wl,--strip-all' '-DNDEBUG' '-mwindows' '-lraylib' '-lopengl32' '-lgdi32' '-lshcore' '-lwinmm'"
+            ],
+            "dependsOn": [
+                "build slim raylib"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
