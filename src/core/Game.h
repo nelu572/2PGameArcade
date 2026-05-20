@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../ui/UIManager.h"
-#include "../ui/UIText.h"
+#include "raylib.h"
+#include "../scenes/MainScene.h"
 
 class Game
 {
@@ -9,10 +9,10 @@ public:
     void Run();
 
 private:
-    UIManager ui;
-    UIText titleLabel;
+    static constexpr int WindowWidth = 2560;
+    static constexpr int WindowHeight = 1440;
+    static constexpr int VirtualWidth = 256;
+    static constexpr int VirtualHeight = 144;
 
-    void ConfigureUI();
-    void Update();
-    void Draw();
+    MainScene mainScene;
 };

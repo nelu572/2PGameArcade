@@ -1,15 +1,14 @@
 #pragma once
 
+#include "../core/GameObject.h"
 #include "UITransform.h"
 
-class UIWidget
+class UIWidget : public GameObject
 {
 public:
     virtual ~UIWidget() = default;
 
     UITransform transform;
-    bool visible = true;
 
-    virtual void Update() {}
     virtual void Draw(const Rectangle& parentRect) const = 0;
 };
