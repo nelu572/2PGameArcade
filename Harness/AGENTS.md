@@ -24,7 +24,7 @@
 4. [AI_DEVELOPMENT_RULES.md](C:/Project/2PGameArcade/Harness/Docs/Conventions/AI_DEVELOPMENT_RULES.md:1)
 5. [CODING_CONVENTIONS.md](C:/Project/2PGameArcade/Harness/Docs/Conventions/CODING_CONVENTIONS.md:1)
 6. [PROJECT_PLAN.md](C:/Project/2PGameArcade/Harness/Docs/Planning/PROJECT_PLAN.md:1)
-7. [TODO_ROADMAP.md](C:/Project/2PGameArcade/Harness/Docs/Planning/TODO_ROADMAP.md:1)
+7. [ISSUES_MEMO.md](C:/Project/2PGameArcade/Harness/Docs/Planning/ISSUES_MEMO.md:1)
 8. [FILE_CHANGE_LOG.md](C:/Project/2PGameArcade/Harness/Docs/Logs/FILE_CHANGE_LOG.md:1)
 
 ## 문서 맵
@@ -35,8 +35,7 @@
 - `Docs/Conventions/CODING_CONVENTIONS.md`: 코딩 규칙
 - `Docs/Conventions/GITHUB_HARNESS.md`: Git 작업 흐름
 - `Docs/Planning/PROJECT_PLAN.md`: 사용자가 작성하는 기획서
-- `Docs/Planning/TODO_ROADMAP.md`: 로드맵과 다음 작업
-- `Docs/Planning/VISUAL_HARNESS.md`: 화면 / UX 검수 기준
+- `Docs/Planning/ISSUES_MEMO.md`: 현재 이슈, 임시 판단, 메모
 - `Docs/Logs/FILE_CHANGE_LOG.md`: 파일 변경 이력
 
 ## 작업 우선순위
@@ -58,5 +57,8 @@
 
 - 하네스 문서는 짧고 실행 가능한 내용 중심으로 유지한다.
 - `WORK_ORDER.md`는 템플릿이므로 명시 요청 없이 구조를 지우지 않는다.
-- `PROJECT_PLAN.md`가 채워진 뒤에는 그 내용을 기준으로 하네스의 개요, 로드맵, 화면 / UX 기준을 갱신한다.
+- `WORK_ORDER.md`는 파일 자체를 비우지 않는다. `작업 이름`, `상세 요구사항`, `유저 메모장`의 내용 칸만 비워둘 수 있다.
+- `PROJECT_PLAN.md`가 채워진 뒤에는 그 내용을 기준으로 하네스의 개요, 로드맵, 화면 / UX 기준을 갱신한
+- `FILE_CHANGE_LOG.md`는 작업 로그와 현재 커밋 안 된 작업을 분리해서 작성한다.
+- `FILE_CHANGE_LOG.md`의 `현재 커밋 안 된 작업`은 변경 내용을 주제별 한 줄 요약 리스트로 나열한다.
 - 오래된 내용은 삭제보다 갱신 또는 이력화한다.
