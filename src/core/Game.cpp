@@ -3,7 +3,7 @@
 
 void Game::Run()
 {
-    InitWindow(WindowWidth, WindowHeight, "2PG Arcade");
+    InitWindow(WindowWidth, WindowHeight, "SIZE UP");
 
     const Rectangle virtualScreenRect = {
         0.0f,
@@ -29,7 +29,9 @@ void Game::Run()
         BeginDrawing();
         ClearBackground(BLACK);
         BeginMode2D(pixelPerfectCamera);
+
         mainScene.Draw(virtualScreenRect);
+
         EndMode2D();
         EndDrawing();
     }
