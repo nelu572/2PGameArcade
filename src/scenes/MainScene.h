@@ -16,14 +16,12 @@ public:
     {
         sceneViewport = viewport;
 
-        ConfigureUI();
         ConfigurePlayers();
 
         // 업데이트와 그리기 순서를 명시해서 씬 구성이 예측 가능하게 유지되도록 한다.
         gameObjects.clear();
         RegisterObject(playerOne);
         RegisterObject(playerTwo);
-        RegisterObject(titleLabel);
     }
 
     void Update() override
@@ -54,7 +52,6 @@ public:
 
 private:
     Rectangle sceneViewport = { 0.0f, 0.0f, 256.0f, 144.0f };
-    UIText titleLabel;
     Player playerOne;
     Player playerTwo;
     std::vector<GameObject*> gameObjects;
@@ -68,18 +65,6 @@ private:
         Rectangle{ 92.0f, 128.0f, 10.0f, 8.0f },
         Rectangle{ 154.0f, 120.0f, 14.0f, 16.0f }
     };
-
-    void ConfigureUI()
-    {
-        titleLabel.text = "2PG ARCADE";
-        titleLabel.fontSize = 16;
-        titleLabel.color = WHITE;
-        titleLabel.transform.anchorMin = { 0.5f, 0.07f };
-        titleLabel.transform.anchorMax = { 0.5f, 0.07f };
-        titleLabel.transform.pivot = { 0.5f, 0.5f };
-        titleLabel.transform.autoWidth = UIAutoSize::FitContent;
-        titleLabel.transform.autoHeight = UIAutoSize::FitContent;
-    }
 
     void ConfigurePlayers()
     {
